@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "6ae78152-0c40-48f5-b898-fac5124357b1",
+		"name": "expensecontrol",
+		"description": "Serviço com APIs relacionados a gastos pessoais.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2689133"
+	},
+	"item": [
+		{
+			"name": "getExpense",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/expense-control/v1/expense",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense-control",
+						"v1",
+						"expense"
+					]
+				},
+				"description": "Retorna todos os gastos."
+			},
+			"response": []
+		},
+		{
+			"name": "getSpent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/expense-control/v1/expense/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense-control",
+						"v1",
+						"expense",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Retorna um gasto conforme o ID passado."
+			},
+			"response": []
+		},
+		{
+			"name": "createSpent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personName\": \"Juca\",\r\n    \"description\": \"Foi no PIX\",\r\n    \"dateTime\": \"2024-08-14T12:00:00\",\r\n    \"amount\": 25.0,\r\n    \"tags\": \"PIX\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/expense-control/v1/expense",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense-control",
+						"v1",
+						"expense"
+					]
+				},
+				"description": "Lança novos gastos."
+			},
+			"response": []
+		},
+		{
+			"name": "updateSpent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personName\": \"Juca\",\r\n    \"description\": \"Foi no Crédito\",\r\n    \"dateTime\": \"2024-08-14T12:15:00\",\r\n    \"amount\": 25.5,\r\n    \"tags\": \"CRÉDITO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/expense-control/v1/expense/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense-control",
+						"v1",
+						"expense",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Atualiza um gasto conforme o ID passado."
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSpent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/expense-control/v1/expense/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense-control",
+						"v1",
+						"expense",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Exclui um gasto conforme o ID passado."
+			},
+			"response": []
+		},
+		{
+			"name": "getReport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/expense-control/v1/expense/report?startDateTime=2024-08-14T12:14:00&endDateTime=2024-08-14T12:17:00",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense-control",
+						"v1",
+						"expense",
+						"report"
+					],
+					"query": [
+						{
+							"key": "startDateTime",
+							"value": "2024-08-14T12:14:00"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2024-08-14T12:17:00"
+						}
+					]
+				},
+				"description": "Retorna um relatório com gasto médio por dia e o aponta o dia com maior gasto conforme a data inicial e a data final fornecida."
+			},
+			"response": []
+		}
+	]
+}

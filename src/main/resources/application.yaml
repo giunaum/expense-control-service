@@ -1,0 +1,20 @@
+server:
+  servlet:
+    context-path: /api/expense-control
+    encoding:
+      charset: UTF-8
+      enabled: true
+
+spring:
+  application:
+    name: expense-control
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+  jpa:
+    generate-ddl: false
+    show-sql: false
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQL10Dialect
+      naming-strategy: org.hibernate.cfg.ImproveNamingStrategy
